@@ -11,12 +11,12 @@ exports.getMany = async (req, res, next) => {
 	}
 }
 
-exports.getOne = async (req, res, next) => {
+exports.getByUser = async (req, res, next) => {
 	try {
-		// const { id } = req.body
-		// if (!id) return res.status(404).send({ status: 'no id' })
+		const { id } = req.body
+		if (!id) return res.status(404).send({ status: 'no id' })
 
-		const result = await Tour.find({})
+		const result = await Tour.find({ user: id })
 		res.status(200).json(result)
 	} catch(e) {
 		console.error(e)
@@ -26,12 +26,14 @@ exports.getOne = async (req, res, next) => {
 
 exports.addOne = async (req, res, next) => {
 	try {
-		const { title, hotel, description } = req.body
-		if (!title || !hotel || !description) return res.status(401).send({ status: 'no data' })
+		const { user, hotel, beginDate, endDate } = req.body
+		if (!title || !hotel || !beginDate || !endDate) return res.status(401).send({ status: 'no data' })
 		const hotelObject = await Hotel.findById(hotel)
-		if (!hotelObject) return res.status(401).send({ status: `can't find Hotel with id-${city}`})
+		const userObject = await User.findById(user)
+		if (!hotelObject) return res.status(401).send({ status: `can't find Hotel with id-${hotel}`})
+		if (!userObject) return res.status(401).send({ status: `can't find User with id-${user}`})
 
-		const result = await new Tour({ title, hotel, description })
+		const result = await new Tour({ user, hotel, beginDate, endDate })
 		result.save()
 		res.status(200).json(result)
 	} catch(e) {
@@ -44,11 +46,9 @@ exports.removeOne = async (req, res, next) => {
 	try {
 		const { id } = req.params || {}
 		if (!id) return res.status(404).send({ status: 'no id' })
-		const hotel = await Hotel.findById(id)
-		if (!hotel) return res.status(401).send({ status: `can't find Hotel with id-${id}`})
 
-		const result = await Hotel.findByIdAndDelete(id)
-		if (!result) return res.status(404).send({ status: `can't find Hotel with id-${id}` })
+		const result = await Tour.findByIdAndDelete(id)
+		if (!result) return res.status(404).send({ status: `can't find Tour with id-${id}` })
 
 		res.status(200).send({ status: `city-${id} has been deleted` })
 	} catch(e) {
@@ -62,15 +62,19 @@ exports.editOne = async (req, res, next) => {
 		const { id } = req.params || {}
 		if (!id) return res.status(404).send({ status: 'no id' })
 
-		const { title, city, description, rating } = req.body || {}
-		if (!title && !city && !description && !rating) return res.status(401).send({ status: 'no data for hotel' })
-		if (city) {
-			const cityObject = await City.findById(city)
-			if (!cityObject) return res.status(401).send({ status: `can't find City with id-${city}`})
+		const { user, hotel, beginDate, endDate } = req.body || {}
+		if (!user && !hotel && !beginDate && !endDate) return res.status(401).send({ status: 'no data for hotel' })
+		if (hotel) {
+			const hotelObject = await Hotel.findById(hotel)
+			if (!hotelObject) return res.status(401).send({ status: `can't find Hotel with id-${hotel}`})
+		}
+		if (user) {
+			const userObject = await User.findById(user)
+			if (!userObject) return res.status(401).send({ status: `can't find User with id-${user}`})
 		}
 
-		const result = await Hotel.findByIdAndUpdate(id, req.body)
-		if (!result) return res.status(404).send({ status: `can't find Hotel with id-${id}` })
+		const result = await Tour.findByIdAndUpdate(id, req.body)
+		if (!result) return res.status(404).send({ status: `can't find Tour with id-${id}` })
 
 		res.status(200).send(result)
 	} catch(e) {
