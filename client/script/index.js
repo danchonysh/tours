@@ -1,25 +1,3 @@
-const authContent = document.querySelector('.content__auth')
-const authTabs = document.querySelectorAll('.auth__tabs button')
-const authForms = [ document.querySelector('.auth__regis'), document.querySelector('.auth__auth') ]
-const userInfo = document.querySelector('.header__user')
-
-const changePageContent = () => {
-	const [ login, phone ] = userInfo.querySelectorAll('span')
-	const user = JSON.parse(localStorage.getItem('currentUser')) || {}
-	console.log(user)
-
-	if (user.login) {
-		login.textContent = user.login
-		phone.textContent = user.phone
-		userInfo.classList.add('auth')
-		authContent.classList.remove('show')
-	} else {
-		userInfo.classList.remove('auth')
-		authContent.classList.add('show')
-	}
-}
-changePageContent()
-
 const switchAuthTab = e => {
 	e.preventDefault()
 
@@ -52,6 +30,7 @@ const submitForm = async e => {
 	if (response.error) {
 		return alert(response.status)
 	}
+	e.target.querySelectorAll('input').forEach(input => input.type !== 'submit' ? input.value = '' : null)
 	localStorage.setItem('currentUser', JSON.stringify(response))
 	changePageContent()
 }

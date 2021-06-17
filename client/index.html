@@ -12,6 +12,8 @@
 	<link rel="stylesheet" href="./style/footer.css">
 	<link rel="stylesheet" href="./style/content/index.css">
 	<link rel="stylesheet" href="./style/content/auth.css">
+	<link rel="stylesheet" href="./style/content/client.css">
+	<link rel="stylesheet" href="./style/content/admin.css">
 	<link rel="stylesheet" href="./style/content/input.css">
 </head>
 <body>
@@ -48,6 +50,17 @@
 					<input type="submit" value="Войти"/>
 				</form>
 			</div>
+			<div class="content__admin">
+				<form class="admin__form">
+					<input type="text" name="title" placeholder="Наименование" required/>
+					<input type="text" name="description" placeholder="Описание" required/>
+					<input type="number" name="price" placeholder="Цена" required/>
+					<input type="submit" value="Добавить"/>
+				</form>
+			</div>
+			<div class="content__client">
+				Ваши брони:
+			</div>
 		</div>
 	</main>
 	<footer class="footer">
@@ -55,7 +68,9 @@
 			<p class="footer__about">© Alyona 2021</p>
 		</div>
 	</footer>
+	<script src="./script/globalVars.js"></script>
 	<script src="./script/api.js"></script>
+	<script src="./script/shapePage.js"></script>
 	<script src="./script/index.js"></script>
 </body>
 </html>

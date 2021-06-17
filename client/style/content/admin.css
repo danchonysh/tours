@@ -1,0 +1,7 @@
+.content__admin {
+	display: none;
+}
+
+.content__admin.show {
+	display: flex;
+} 

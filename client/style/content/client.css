@@ -1,0 +1,7 @@
+.content__client {
+	display: none;
+}
+
+.content__client.show {
+	display: flex;
+} 

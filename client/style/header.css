@@ -41,7 +41,7 @@
 	cursor: pointer;
 }
 
-.header__user.auth {
+.header__user.show {
 	display: flex;
 }
 

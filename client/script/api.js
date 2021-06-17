@@ -1,5 +1,5 @@
 const request = async (shortUrl, { body = null, method = "GET" }) => {
-	const url = `http://localhost:3030/${shortUrl}`
+	const url = `http://localhost:${PORT}/${shortUrl}`
 	const headers = {
 		'Content-Type': 'application/json'
 	}
@@ -17,8 +17,6 @@ const user = {
 	getAll: async () => await request('user', {}),
 	delete: async id => await request(`user/${id}`, {})
 }
-
-
 
 const api = { user }
 
