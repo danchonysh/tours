@@ -1,0 +1,8 @@
+.footer .container{
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: flex-end;
+	color: gray;
+	font-size: .75rem;
+}

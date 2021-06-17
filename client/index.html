@@ -6,9 +6,13 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Tours</title>
 	<link rel="icon" href="./static/favicon.png">
+	<link rel="stylesheet" href="./style/vars.css">
 	<link rel="stylesheet" href="./style/main.css">
 	<link rel="stylesheet" href="./style/header.css">
 	<link rel="stylesheet" href="./style/footer.css">
+	<link rel="stylesheet" href="./style/content/index.css">
+	<link rel="stylesheet" href="./style/content/auth.css">
+	<link rel="stylesheet" href="./style/content/input.css">
 </head>
 <body>
 	<header class="header">
@@ -25,12 +29,30 @@
 	</header>
 	<main class="content">
 		<div class="container">
-			<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Illo ex, quae id labore harum aperiam veritatis ratione voluptates aliquam! Hic veniam inventore nulla qui obcaecati atque rem velit soluta? Natus?</p>
+			<div class="content__auth">
+				<div class="auth__tabs">
+					<button class="pick">Вход</button>
+					<button>Регистрация</button>
+				</div>
+
+				<form class="auth__regis">
+					<input type="text" placeholder="Логин" required/>
+					<input type="password" placeholder="Пароль" required/>
+					<input type="submit" value="Войти"/>
+				</form>
+
+				<form class="auth__auth">
+					<input type="text" placeholder="Логин" required/>
+					<input type="password" placeholder="Пароль" required/>
+					<input type="tel" placeholder="79008003333" required/>
+					<input type="submit" value="Зарегистрироваться"/>
+				</form>
+			</div>
 		</div>
 	</main>
 	<footer class="footer">
 		<div class="container">
-			<p class="footer__about">(c) Alyona 2021</p>
+			<p class="footer__about">© Alyona 2021</p>
 		</div>
 	</footer>
 </body>

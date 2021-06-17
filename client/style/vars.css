@@ -1,0 +1,8 @@
+:root {
+	font-size: 20px;
+	--main-color: rgb(110, 185, 110);
+	--secondary-color: rgb(56, 141, 56);
+	--danger-color: rgb(248, 79, 79);
+	--attention-color: rgb(246, 217, 84);
+	--duration: .25s;
+}
