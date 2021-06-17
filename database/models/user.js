@@ -8,7 +8,7 @@ const ROLES = {
 const userSchema = new Schema({
 	login: { type: String, required: true, unique: true },
 	code: { type: String, required: true, access: 'private' },
-	role: { type: String, required: true, enum: Object.values(ROLES) },
+	role: { type: String, required: true, enum: Object.values(ROLES), default: ROLES.CLIENT },
 	phone: { type: Number, required: true }
 })
 

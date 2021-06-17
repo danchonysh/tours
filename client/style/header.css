@@ -34,10 +34,15 @@
 }
 
 .header__user {
-	display: flex;
+	display: none;
 	flex-direction: column;
 	justify-content: space-between;
 	align-items: flex-end;
+	cursor: pointer;
+}
+
+.header__user.auth {
+	display: flex;
 }
 
 .header__user-phone {

@@ -22,3 +22,7 @@ input[type="submit"]:hover {
 	background-color: white;
 	color: var(--main-color)
 }
+
+input.danger {
+	outline: solid 1px var(--danger-color);
+}

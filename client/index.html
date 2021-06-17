@@ -31,21 +31,21 @@
 		<div class="container">
 			<div class="content__auth">
 				<div class="auth__tabs">
-					<button class="pick">Вход</button>
-					<button>Регистрация</button>
+					<button data-tab="auth" class="pick">Вход</button>
+					<button data-tab="regis">Регистрация</button>
 				</div>
-
-				<form class="auth__regis">
-					<input type="text" placeholder="Логин" required/>
-					<input type="password" placeholder="Пароль" required/>
-					<input type="submit" value="Войти"/>
+				
+				<form class="auth__regis" data-form="regis">
+					<input type="text" name="login" placeholder="Логин" required/>
+					<input type="password" name="code" placeholder="Пароль" required/>
+					<input type="tel" name="phone" placeholder="79008003333" required/>
+					<input type="submit" value="Зарегистрироваться"/>
 				</form>
 
-				<form class="auth__auth">
-					<input type="text" placeholder="Логин" required/>
-					<input type="password" placeholder="Пароль" required/>
-					<input type="tel" placeholder="79008003333" required/>
-					<input type="submit" value="Зарегистрироваться"/>
+				<form class="auth__auth show" data-form="auth">
+					<input type="text" name="login" placeholder="Логин" size="20" maxlength="15" required/>
+					<input type="password" name="code" placeholder="Пароль" required/>
+					<input type="submit" value="Войти"/>
 				</form>
 			</div>
 		</div>
@@ -55,5 +55,7 @@
 			<p class="footer__about">© Alyona 2021</p>
 		</div>
 	</footer>
+	<script src="./script/api.js"></script>
+	<script src="./script/index.js"></script>
 </body>
 </html>
