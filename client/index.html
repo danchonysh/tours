@@ -24,8 +24,8 @@
 				<span class="header__logo-subtitle">Составляй заявку быстро и без нервов, с вами сразу же свяжутся наши сотрудники</span>
 			</div>
 			<div class="header__user">
-				<span class="header__user-login">Alyona</span>
-				<span class="header__user-phone">88005553535</span>
+				<span class="header__user-login">Login</span>
+				<span class="header__user-phone">Number</span>
 			</div>
 		</div>
 	</header>
@@ -51,12 +51,69 @@
 				</form>
 			</div>
 			<div class="content__admin">
-				<form class="admin__form">
-					<input type="text" name="title" placeholder="Наименование" required/>
-					<input type="text" name="description" placeholder="Описание" required/>
-					<input type="number" name="price" placeholder="Цена" required/>
-					<input type="submit" value="Добавить"/>
-				</form>
+				<div class="admin__tabs">
+					<button data-tab="offers" class="pick">Предложения</button>
+					<button data-tab="orders">Заказы</button>
+				</div>
+
+				<div class="admin__offers show">
+					<form class="offers__form">
+						<input type="text" name="title" placeholder="Наименование" required/>
+						<textarea type="text" name="description" placeholder="Описание" required></textarea>
+						<input type="datetime-local" name="beginDate" title="Дата начала" required/>
+						<input type="datetime-local" name="endDate" title="Дата окончания" required/>
+						<input type="number" name="price" placeholder="Цена $" required/>
+						<input type="submit" value="Добавить"/>
+					</form>
+
+					<ul class="offers__list">
+						<li class="offers__item" data-id="123412431">
+							<h3 class="offers__item-id">k321jp9f1j91j0di9a</h3>
+							<div class="offers__item-info">
+								<span class="offers__item-country">USA</span>
+								<span class="offers__item-city">Los Angeles</span>
+								<span class="offers__item-hotel">Lost Angels 5 Stars</span>
+								<span class="offers__item-description">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa officiis, voluptas tempora modi nisi et veritatis, eaque sunt omnis atque ut accusamus quia porro deserunt facere, unde vitae. Beatae.
+								</span>
+								<div class="offers__item-date">
+									<span class="begin">01.01.2020</span>
+									<span class="end">11.01.2020</span>
+								</div>
+							</div>
+							<button class="offers__item-delete">Удалить</button>
+						</li>
+						<li class="offers__item" data-id="123412431">
+							<h3 class="offers__item-id">k321dasf1j0didfa</h3>
+							<div class="offers__item-info">
+								<span class="offers__item-country">Russia</span>
+								<span class="offers__item-city">Moscow</span>
+								<span class="offers__item-hotel">Trivago</span>
+								<span class="offers__item-description">
+									Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla ipsa officiis, voluptas tempora modi nisi et veritatis, eaque sunt omnis atque ut accusamus quia porro deserunt facere, unde vitae. Beatae.
+								</span>
+								<div class="offers__item-date">
+									<span class="begin">01.01.2020</span>
+									<span class="end">11.01.2020</span>
+								</div>
+							</div>
+							<button class="offers__item-delete">Удалить</button>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="admin__orders">
+					<ul class="orders__list">
+						<li class="orders__item" data-id="123412431">
+							<h3 class="orders__item-id">k321jp9f1j91j0di9a</h3>
+							<div class="orders__item-user">
+								<span class="orders__item-user-login">Login</span>
+								<span class="orders__item-user-phone">Number</span>
+							</div>
+							<button class="orders__item-delete">Обработан</button>
+						</li>
+					</ul>
+				</div>
 			</div>
 			<div class="content__client">
 				Ваши брони:
@@ -71,6 +128,7 @@
 	<script src="./script/globalVars.js"></script>
 	<script src="./script/api.js"></script>
 	<script src="./script/shapePage.js"></script>
-	<script src="./script/index.js"></script>
+	<script src="./script/auth.js"></script>
+	<script src="./script/admin.js"></script>
 </body>
 </html>
