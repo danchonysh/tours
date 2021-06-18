@@ -7,12 +7,11 @@ const { Schema, model } = require('mongoose')
 // 	user: { type: Schema.Types.ObjectId, ref: 'User', required: true }
 // })
 const hotelSchema = new Schema({
-	country: { type: String, required: true },
-	city: { type: String, required: true },
-	hotel: { type: String, required: true },
+	title: { type: String, required: true },
 	description: { type: String, required: true },
 	beginDate: { type: Date, required: true },
-	endDate: { type: Date, required: true }
+	endDate: { type: Date, required: true },
+	price: { type: Number, required: true }
 })
 
 module.exports = model('Tour', hotelSchema)

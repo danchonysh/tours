@@ -1,5 +1,3 @@
-console.log(adminTabs)
-
 const switchAdminTab = e => {
 	e.preventDefault()
 
@@ -10,7 +8,7 @@ const switchAdminTab = e => {
 	document.querySelector(`.admin__${e.target.dataset.tab}`).classList.add('show')
 }
 
-const addOffer = e => {
+const addOffer = async e => {
 	e.preventDefault()
 
 	const body = {}
@@ -20,16 +18,40 @@ const addOffer = e => {
 		body[name] = input.value
 	})
 
-	const response = await api.offer.add(body)
+	e.target.querySelectorAll('textarea').forEach(input => {
+		const name = input.getAttribute('name')
+		if (!name) return
+		body[name] = input.value
+	})
+
+	console.log(body)
+
+	const response = await api.offers.add(body)
 	console.log(response)
 
 	if (response.error) {
 		return alert(response.status)
 	}
 	e.target.querySelectorAll('input').forEach(input => input.type !== 'submit' ? input.value = '' : null)
-	localStorage.setItem('currentUser', JSON.stringify(response))
-	changePageContent()
+	renderOfferList()
+}
+
+const deleteOffer = async e => {
+	e.preventDefault()
+
+	if (e.target.classList.contains('offers__item-delete') && confirm('Вы действительно хотите удалить данное предложение?')) {
+		const item = e.target.closest('.offers__item')
+
+		const response = await api.offers.delete(item.dataset.id)
+
+		if (response.error) {
+			return alert(response.status)
+		}
+		e.target.querySelectorAll('input').forEach(input => input.type !== 'submit' ? input.value = '' : null)
+		renderOfferList()
+	}
 }
 
 adminTabs.forEach(tab => tab.addEventListener('click', switchAdminTab))
 adminForm.addEventListener('submit', addOffer)
+offerList.addEventListener('click', deleteOffer)

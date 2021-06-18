@@ -20,7 +20,6 @@ router.delete('/hotel/:id', hotelController.removeOne)
 router.put('/hotel/:id', hotelController.editOne)
 
 router.get('/tours', tourController.getMany)
-router.get('/tours/:id', tourController.getByUser)
 router.post('/tours', tourController.addOne)
 router.delete('/tours/:id', tourController.removeOne)
 router.put('/tours/:id', tourController.editOne)

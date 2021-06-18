@@ -121,7 +121,7 @@
 	font-size: 1rem;
 }
 
-.offers__item-country, .offers__item-city, .offers__item-hotel, .offers__item-description {
+.offers__item-title, .offers__item-description {
 	color: white;
 	font-size: 1rem;
 	font-weight: lighter;
