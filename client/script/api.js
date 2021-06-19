@@ -4,8 +4,6 @@ const request = async (shortUrl, { body = null, method = "GET" }) => {
 		'Content-Type': 'application/json'
 	}
 
-	console.log(body)
-
 	const options = {
 		headers,
 		method
@@ -21,7 +19,10 @@ const user = {
 	regis: async body => await request('user/regis', { method: 'POST', body }),
 	auth: async body => await request('user/auth', { method: 'POST', body }),
 	getAll: async () => await request('user', {}),
-	delete: async id => await request(`user/${id}`, { method: 'DELETE' })
+	delete: async id => await request(`user/${id}`, { method: 'DELETE' }),
+	getOrders: async id => await request(`user/orders/${id}`, {}),
+	addOrder: async (id, body) => await request(`user/subscribe/${id}`, { method: 'PATCH', body }),
+	removeOrder: async (id, body) => await request(`user/unsubscribe/${id}`, { method: 'PATCH', body })
 }
 
 const offers = {

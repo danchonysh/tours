@@ -47,11 +47,10 @@ const deleteOffer = async e => {
 		if (response.error) {
 			return alert(response.status)
 		}
-		e.target.querySelectorAll('input').forEach(input => input.type !== 'submit' ? input.value = '' : null)
 		renderOfferList()
 	}
 }
 
 adminTabs.forEach(tab => tab.addEventListener('click', switchAdminTab))
 adminForm.addEventListener('submit', addOffer)
-offerList.addEventListener('click', deleteOffer)
+adminOfferList.addEventListener('click', deleteOffer)

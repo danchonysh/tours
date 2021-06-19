@@ -1,7 +1,6 @@
 const changePageContent = () => {
 	const [ login, phone ] = userInfo.querySelectorAll('span')
-	const user = JSON.parse(localStorage.getItem('currentUser')) || {}
-	console.log(user)
+	const user = currentUser()
 
 	if (!user.login) {
 		userInfo.classList.remove('show')

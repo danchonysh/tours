@@ -53,7 +53,7 @@
 			<div class="content__admin">
 				<div class="admin__tabs">
 					<button data-tab="offers" class="pick">Предложения</button>
-					<button data-tab="orders">Заказы</button>
+					<button data-tab="orders">Заявки</button>
 				</div>
 
 				<div class="admin__offers show">
@@ -69,20 +69,22 @@
 				</div>
 				
 				<div class="admin__orders">
-					<ul class="orders__list">
-						<li class="orders__item" data-id="123412431">
-							<h3 class="orders__item-id">k321jp9f1j91j0di9a</h3>
-							<div class="orders__item-user">
-								<span class="orders__item-user-login">Login</span>
-								<span class="orders__item-user-phone">Number</span>
-							</div>
-							<button class="orders__item-delete">Обработан</button>
-						</li>
-					</ul>
+					<ul class="orders__list"></ul>
 				</div>
 			</div>
 			<div class="content__client">
-				Ваши брони:
+				<div class="client__tabs">
+					<button data-tab="offers" class="pick">Предложения</button>
+					<button data-tab="orders">Мои заявки</button>
+				</div>
+
+				<div class="client__offers show">
+					<ul class="offers__list"></ul>
+				</div>
+				
+				<div class="client__orders">
+					<ul class="orders__list"></ul>
+				</div>
 			</div>
 		</div>
 	</main>
@@ -95,7 +97,9 @@
 	<script src="./script/api.js"></script>
 	<script src="./script/shapePage.js"></script>
 	<script src="./script/renderOfferList.js"></script>
+	<script src="./script/renderOrderList.js"></script>
 	<script src="./script/auth.js"></script>
 	<script src="./script/admin.js"></script>
+	<script src="./script/client.js"></script>
 </body>
 </html>
