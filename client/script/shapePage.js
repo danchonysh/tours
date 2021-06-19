@@ -1,6 +1,6 @@
 const changePageContent = () => {
 	const [ login, phone ] = userInfo.querySelectorAll('span')
-	const user = currentUser()
+	const user = currentUser() || {}
 
 	if (!user.login) {
 		userInfo.classList.remove('show')

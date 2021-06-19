@@ -50,4 +50,4 @@ const renderOrderList = async () => {
 	}	
 }
 
-renderOrderList()
+if (currentUser()) renderOrderList()

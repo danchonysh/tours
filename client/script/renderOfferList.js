@@ -54,4 +54,4 @@ const renderOfferList = async () => {
 	})
 }
 
-renderOfferList()
+if (currentUser()) renderOfferList()

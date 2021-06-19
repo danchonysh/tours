@@ -1,8 +1,7 @@
-const router = require('express').Router()
 const User = require('../database/models/user')
 const Tour = require('../database/models/tour')
 
-router.post('/auth', async (req, res, next) => {
+exports.auth = async (req, res, next) => {
 	try {
 		const { login, code } = req.body || {}
 	
@@ -15,9 +14,9 @@ router.post('/auth', async (req, res, next) => {
 		console.error(e)
 		next()
 	}
-})
+}
 
-router.post('/regis', async (req, res, next) => {
+exports.regis = async (req, res, next) => {
 	try {
 		const { login, code, phone, role } = req.body || {}
 	
@@ -32,9 +31,9 @@ router.post('/regis', async (req, res, next) => {
 		console.error(e)
 		next()
 	}
-})
+}
 
-router.get('/', async (req, res, next) => {
+exports.getAll = async (req, res, next) => {
 	try {
 		const result = await User.find({})
 		res.status(200).json(result)
@@ -42,9 +41,9 @@ router.get('/', async (req, res, next) => {
 		console.error(e)
 		next()
 	}
-})
+}
 
-router.delete('/:id', async (req, res, next) => {
+exports.deleteOne = async (req, res, next) => {
 	try {
 		const { id } = req.params || {}
 		if (!id) return res.status(404).send({ status: 'no id', error: true })
@@ -57,9 +56,9 @@ router.delete('/:id', async (req, res, next) => {
 		console.error(e)
 		next()
 	}
-})
+}
 
-router.get('/orders/:id', async (req, res, next) => {
+exports.getOrders = async (req, res, next) => {
 	try {
 		const { id } = req.params || {}
 		if (!id) return res.status(404).send({ status: 'no id', error: true })
@@ -71,9 +70,9 @@ router.get('/orders/:id', async (req, res, next) => {
 		console.error(e)
 		next()
 	}
-})
+}
 
-router.patch('/subscribe/:id', async (req, res, next) => {
+exports.subscribe = async (req, res, next) => {
 	try {
 		const { tourId } = req.body || {}
 		if (!tourId) return res.status(404).send({ status: 'no id', error: true })
@@ -90,9 +89,9 @@ router.patch('/subscribe/:id', async (req, res, next) => {
 		console.error(e)
 		next()
 	}
-})
+}
 
-router.patch('/unsubscribe/:id', async (req, res, next) => {
+exports.unsubscribe = async (req, res, next) => {
 	try {
 		const { tourId } = req.body || {}
 		if (!tourId) return res.status(404).send({ status: 'no id', error: true })
@@ -109,6 +108,4 @@ router.patch('/unsubscribe/:id', async (req, res, next) => {
 		console.error(e)
 		next()
 	}
-})
-
-module.exports = router
+}

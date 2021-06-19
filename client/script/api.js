@@ -16,13 +16,13 @@ const request = async (shortUrl, { body = null, method = "GET" }) => {
 }
 
 const user = {
-	regis: async body => await request('user/regis', { method: 'POST', body }),
-	auth: async body => await request('user/auth', { method: 'POST', body }),
-	getAll: async () => await request('user', {}),
-	delete: async id => await request(`user/${id}`, { method: 'DELETE' }),
-	getOrders: async id => await request(`user/orders/${id}`, {}),
-	addOrder: async (id, body) => await request(`user/subscribe/${id}`, { method: 'PATCH', body }),
-	removeOrder: async (id, body) => await request(`user/unsubscribe/${id}`, { method: 'PATCH', body })
+	regis: async body => await request('api/user/regis', { method: 'POST', body }),
+	auth: async body => await request('api/user/auth', { method: 'POST', body }),
+	getAll: async () => await request('api/user', {}),
+	delete: async id => await request(`api/user/${id}`, { method: 'DELETE' }),
+	getOrders: async id => await request(`api/user/orders/${id}`, {}),
+	addOrder: async (id, body) => await request(`api/user/subscribe/${id}`, { method: 'PATCH', body }),
+	removeOrder: async (id, body) => await request(`api/user/unsubscribe/${id}`, { method: 'PATCH', body })
 }
 
 const offers = {
