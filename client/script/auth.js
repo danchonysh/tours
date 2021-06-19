@@ -33,6 +33,8 @@ const submitForm = async e => {
 	e.target.querySelectorAll('input').forEach(input => input.type !== 'submit' ? input.value = '' : null)
 	localStorage.setItem('currentUser', JSON.stringify(response))
 	changePageContent()
+	renderOfferList()
+	renderOrderList()
 }
 
 const logOff = () => {

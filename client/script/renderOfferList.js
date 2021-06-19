@@ -13,8 +13,10 @@ const renderOfferList = async () => {
 		</li>
 	`
 
-	if (!offers.length) return adminOfferList.insertAdjacentHTML('afterbegin', emptyTemplate)
-	if (!offers.length) return clientOfferList.insertAdjacentHTML('afterbegin', emptyTemplate)
+	if (!offers.length) {
+		clientOfferList.insertAdjacentHTML('afterbegin', emptyTemplate)
+		return adminOfferList.insertAdjacentHTML('afterbegin', emptyTemplate)
+	} 
 
 	offers.forEach(offer => {
 		const { title, description, price, beginDate, endDate, _id } = offer

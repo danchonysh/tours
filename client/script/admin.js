@@ -51,6 +51,22 @@ const deleteOffer = async e => {
 	}
 }
 
+const checkOrder = async e => {
+	e.preventDefault()
+
+	if (e.target.classList.contains('orders__item-delete') && confirm('Подтвердить обработку заявки?')) {
+		const item = e.target.closest('.orders__item')
+		const { id: tourId, user } = item.dataset
+		const response = await api.user.removeOrder(user, { tourId })
+
+		if (response.error) {
+			return alert(response.status)
+		}
+		renderOrderList()
+	}
+}
+
 adminTabs.forEach(tab => tab.addEventListener('click', switchAdminTab))
 adminForm.addEventListener('submit', addOffer)
 adminOfferList.addEventListener('click', deleteOffer)
+adminOrderList.addEventListener('click', checkOrder)
