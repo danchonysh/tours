@@ -5,8 +5,6 @@ const renderOrderList = async () => {
 	const clientOrders = await api.user.getOrders(userId)
 	const adminOrders = [] 
 	users.forEach(({ login, phone, orders, _id }) => orders.forEach(order => adminOrders.push({ login, phone, order, _id })))
-
-	console.log({ adminOrders, clientOrders })
 	
 	adminOrderList.innerHTML = ''
 	clientOrderList.innerHTML = ''
@@ -19,7 +17,6 @@ const renderOrderList = async () => {
 
 	if (adminOrders.length) {
 		adminOrders.forEach(({ login, phone, order, _id }) => {
-			console.log(order)
 			adminOrderList.insertAdjacentHTML('afterbegin', `
 				<li class="orders__item" data-id="${order}" data-user="${_id}">
 					<h3 class="orders__item-id">${order}</h3>

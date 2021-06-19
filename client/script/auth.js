@@ -25,7 +25,6 @@ const submitForm = async e => {
 	if (e.target.dataset.form === 'regis') {
 		response = await api.user.regis(body)
 	}
-	console.log(response)
 
 	if (response.error) {
 		return alert(response.status)

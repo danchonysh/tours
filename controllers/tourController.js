@@ -1,5 +1,4 @@
 const Tour = require('../database/models/tour')
-const Hotel = require('../database/models/hotel')
 
 exports.getMany = async (req, res, next) => {
 	try {
